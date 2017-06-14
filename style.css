@@ -1,0 +1,28 @@
+div{
+  font-family: Arial;
+}
+
+.logo{
+  color: green;
+  display: flex;
+  align-items: center;
+}
+
+h1, img{
+  display: inline-block;
+}
+
+.tweet{
+  border: 2px solid green;
+  margin: 2px 0px 2px 0px;
+}
+
+.dateTweet{
+  font-size: 10px;
+}
+
+
+.userName {
+  cursor: pointer;
+  cursor: hand;
+}

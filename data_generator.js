@@ -42,17 +42,19 @@ var generateRandomTweet = function(){
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
-  tweet.created_at = new Date();
+  tweet.created_at = new Date();//jQuery.timeago(new Date());
   addTweet(tweet);
 };
 
+/*
 for(var i = 0; i < 10; i++){
   generateRandomTweet();
 }
+*/
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 1500);
+  setTimeout(scheduleNextTweet, Math.random() * 3000);
 };
 scheduleNextTweet();
 
@@ -67,3 +69,15 @@ var writeTweet = function(message){
   tweet.message = message;
   addTweet(tweet);
 };
+
+function hashtag(message){
+	var hastagStr = '';
+	var messageStr = '';
+	if (message.indexOf('#') !== -1){
+		hastagStr = message.slice(message.indexOf('#')+1);
+		messageStr = message.slice(0, message.indexOf('#'));
+		return `${messageStr}<a target="_blank" href="https://twitter.com/hashtag/${hastagStr}">#${hastagStr}</a>`;
+	} else {
+    return message;
+  }
+}
